@@ -191,7 +191,8 @@ function formViewMatrix(){
     
     //-------------TODO: 计算观察矩阵并赋值给ViewMatrix--------------------------------
     // 提示：需要的参数有eye, at, up，可调用common目录下的MV.js里函数
-    alert("TODO: 未实现观察矩阵构造"); // 完成后删除本行即可
+    // ViewMatrix = mat4();
+    ViewMatrix = lookAt( eye, at, up );
 };
 
 /* 生成规范化投影变换矩阵 */
@@ -207,15 +208,17 @@ function formProjectMatrix(){
 		//----------TODO: 计算平行投影矩阵并赋值给ProjectionMatrix-------------
         // 提示：需要的参数有left, right, bottom, ytop, near, far
         // 提示：webGL是左手坐标系，在常规算法得基础上可能需要对Z轴进行反转处理
-        alert("TODO: 未实现平行投影矩阵构造"); // 完成后删除本行即可
+        ProjectionMatrix = ortho( left, right, bottom, ytop, near, far );
+
     }
     else{ // 计算透视投影矩阵
-        var aspect = 1;canvas.height/canvas.width; // 纵横比
+        var aspect = 1;
+        canvas.height/canvas.width; // 纵横比
 		
         //-------TODO: 计算透视投影矩阵并赋值给ProjectionMatrix--------------
         // 提示：需要的参数有fov, aspect, near, far，可调用common目录下的MV.js里函数
         // 提示：webGL是左手坐标系，在常规算法得基础上可能需要对Z轴进行反转处理
-        alert("TODO: 未实现透视投影矩阵构造"); // 完成后删除本行即可
+         ProjectionMatrix = perspective( fov, aspect, near, far );
     }
 }
 
